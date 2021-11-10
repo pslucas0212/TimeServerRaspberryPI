@@ -4,7 +4,7 @@ Instructions for Setting Up GPS USB for Time Server Support
 
 ### Software Installation  
 
-Install GPS?
+Install the GPS Daemon gpsd and the GPS Daemon client gpsd-clients
 ```
 # apt install gpsd
 # apt install gpsd-clients
@@ -24,7 +24,8 @@ Create and Configure GPSD file
 cd /etc/default
 vi gpsd
 ```
-GPSD file contents
+
+gpsd file contents
 ```
 START_DAEMON="true"
 
@@ -46,20 +47,44 @@ Now start gpsd and check status.
 # systemctl status gpsd
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Stop gpsd to manage GPS reciever "manually".  Ctrl-c to stop
 ```
+# systemctl stop gpsd
+```
+Start GSP monitoring tool
+```
+# gpsmon /dev/<USB >
+```
+
+Another tool for same information - CGPS.   Ctrl-c to stop
+```
+# cgps -s
+```
+
+Make NTP configuration
+
+Install NTP
+```
+# apt install ntp
+```
+
+Edit ntpd.conf - /etc.  
+
+Disable the pool servers that come as default.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
