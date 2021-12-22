@@ -171,7 +171,7 @@ Notice that the Referene refers to NMEA which is our USB GPS
 
 
 ### References 
-[Raspberry Pi Buster – GPS Dongle as a time source with Chrony & Timedatectl](https://photobyte.org/raspberry-pi-stretch-gps-dongle-as-a-time-source-with-chrony-timedatectl/). 
+[Raspberry Pi Buster – GPS Dongle as a time source with Chrony & Timedatectl](https://photobyte.org/raspberry-pi-stretch-gps-dongle-as-a-time-source-with-chrony-timedatectl/)  
 [Raspberry Pi 4 GPS Install](https://www.youtube.com/watch?v=isVHkovZuSM)  
 [How to Setup GPS Tracker for Raspberry Pi](https://www.youtube.com/watch?v=A1zmhxcUOxw)
 
