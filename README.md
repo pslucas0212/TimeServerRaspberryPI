@@ -37,7 +37,7 @@ Synchronizing state of gpsd.service with SysV service script with /lib/systemd/s
 Executing: /lib/systemd/systemd-sysv-install disable gpsd
 ```
 
-Next edit the /lib/systemd/system/gpsd.socket and change this line ListenStream=127.0.0.1:2947 to ListenStream=0.0.0.0:2947
+Next edit the /lib/systemd/system/gpsd.socket file and change this line ListenStream=127.0.0.1:2947 to ListenStream=0.0.0.0:2947
 ```
 $ sudo vi /lib/systemd/system/gpsd.socket
 ```
