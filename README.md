@@ -35,7 +35,7 @@ Synchronizing state of gpsd.service with SysV service script with /lib/systemd/s
 Executing: /lib/systemd/systemd-sysv-install disable gpsd
 ```
 
-Next edit the /lib/systemd/system/gpsd.socket
+Next edit the /lib/systemd/system/gpsd.socket and change this line ListenStream=127.0.0.1:2947 to ListenStream=0.0.0.0:2947
 ```
 $ sudo vi /lib/systemd/system/gpsd.socket
 ```
@@ -46,9 +46,7 @@ $ sudo killall gpsd
 gpsd: no process found
 ```
 
-Change this line ListenStream=127.0.0.1:2947 to ListenStream=0.0.0.0:2947
-
-Now let's bind our USB GPS to gpsd
+Now let's bind our USB GPS to gpsd.  And of course this starts our gpsd daemon.
 ```
 $ sudo gpsd /dev/ttyUSB0 -F /var/run/gpsd.socket
 ```
@@ -79,7 +77,7 @@ Another tool for same information - CGPS.   Ctrl-c to stop
 ```
 
 
-
+Setting up chronyc as the time server using the GPS USB
 
 
 
