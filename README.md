@@ -137,8 +137,7 @@ Edit ntpd.conf - /etc.
 
 Disable the pool servers that come as default.
 
-### References
-[How to connect an usb GPS receiver with a Raspberry PI?](https://gpswebshop.com/blogs/tech-support-by-os-linux/how-to-connect-an-usb-gps-receiver-with-a-raspberry-pi)  
+### References 
 [Raspberry Pi 4 GPS Install](https://www.youtube.com/watch?v=isVHkovZuSM)  
 [How to Setup GPS Tracker for Raspberry Pi](https://www.youtube.com/watch?v=A1zmhxcUOxw)
 
