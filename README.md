@@ -1,4 +1,6 @@
-# Setting Raspberry PI to Be a Time Server
+# Setting Up a Raspberry PI 4 to Be a Time Server
+
+Last updated: 12/22/2021
 
 Instructions for Setting Up GPS USB for Time Server Support
 
