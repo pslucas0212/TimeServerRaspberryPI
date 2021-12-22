@@ -2,7 +2,7 @@
 
 Last updated: 12/22/2021
 
-Instructions for Setting Up GPS USB for Time Server Support
+Instructions for Setting Up GPS USB as a stratum 0 time server for you network environment.
 
 ### Software Installation  
 
@@ -81,8 +81,6 @@ Another tool for same information - CGPS.   Ctrl-c to stop
 
 Setting up chronyc as the time server using the GPS USB
 
-
-
 Create and Configure GPSD file
 
 ```
@@ -105,53 +103,75 @@ ENABLED="yes"
 GPS_BAUD=9600
 ```
 
-Now start gpsd and check status.
-
+Start by installing chrony
 ```
-# systemctl start gpsd
-# systemctl status gpsd
+$ sudo apt-get install chrony
 ```
 
-Stop gpsd to manage GPS reciever "manually".  Ctrl-c to stop
+Edit the chrony conf file to use our USB GPS
 ```
-# systemctl stop gpsd
-```
-Start GSP monitoring tool
-```
-# gpsmon /dev/<USB >
+$ sudo vi /etc/chrony/chrony.conf
 ```
 
-Another tool for same information - CGPS.   Ctrl-c to stop
+Add the following line to the end of the file
 ```
-# cgps -s
-```
-
-Make NTP configuration
-
-Install NTP
-```
-# apt install ntp
+# USB GPS
+refclock SHM 0 offset 0.5 delay 0.2 refid NMEA prefer
 ```
 
-Edit ntpd.conf - /etc.  
+Start and enable chrony
+```
+$ sudo systemctl start chrony
+$ sudo systemctl enable chrony
+```
 
-Disable the pool servers that come as default.
+Check to see if chrony is using your USB GPS for the primariy time source. 
+```
+$ chronyc sources -v
+210 Number of sources = 5
+
+  .-- Source mode  '^' = server, '=' = peer, '#' = local clock.
+ / .- Source state '*' = current synced, '+' = combined , '-' = not combined,
+| /   '?' = unreachable, 'x' = time may be in error, '~' = time too variable.
+||                                                 .- xxxx [ yyyy ] +/- zzzz
+||      Reachability register (octal) -.           |  xxxx = adjusted offset,
+||      Log2(Polling interval) --.      |          |  yyyy = measured offset,
+||                                \     |          |  zzzz = estimated error.
+||                                 |    |           \
+MS Name/IP address         Stratum Poll Reach LastRx Last sample               
+===============================================================================
+#* NMEA                          0   4     0   29m  -1053us[ -842us] +/-  144ms
+^- t2.time.bf1.yahoo.com         2  10   377   673    -86ms[  -86ms] +/-   73ms
+^- static-72-87-88-202.prvd>     2  10   377   659    -85ms[  -85ms] +/-   64ms
+^- ntp05.cymru.com               3  10   377   672    -88ms[  -88ms] +/-  110ms
+^- 38.229.52.9                   2   9   377   514    -87ms[  -87ms] +/-  109ms
+pslucas@ns01:/etc/chrony $ 
+```
+The #* by NMEA indicates that chrony is using your USB GPS as its local time source. Note that this a stratum 0 time source.
+
+You can also verify that the USB GPS is in use with the following:
+```
+$ sudo chronyc tracking
+Reference ID    : 4E4D4541 (NMEA)
+Stratum         : 1
+Ref time (UTC)  : Wed Dec 22 17:47:44 2021
+System time     : 0.000000009 seconds fast of NTP time
+Last offset     : +0.000210558 seconds
+RMS offset      : 0.046488557 seconds
+Frequency       : 8.279 ppm fast
+Residual freq   : +25.147 ppm
+Skew            : 0.123 ppm
+Root delay      : 0.200000003 seconds
+Root dispersion : 0.102880307 seconds
+Update interval : 16.0 seconds
+Leap status     : Normal
+```
+
+Notice that the Referene refers to NMEA which is our USB GPS
+
 
 ### References 
+[Raspberry Pi Buster – GPS Dongle as a time source with Chrony & Timedatectl](https://photobyte.org/raspberry-pi-stretch-gps-dongle-as-a-time-source-with-chrony-timedatectl/)
 [Raspberry Pi 4 GPS Install](https://www.youtube.com/watch?v=isVHkovZuSM)  
 [How to Setup GPS Tracker for Raspberry Pi](https://www.youtube.com/watch?v=A1zmhxcUOxw)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
