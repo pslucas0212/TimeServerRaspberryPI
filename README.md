@@ -1,8 +1,8 @@
-# Setting Up a Raspberry PI 4 to Be a Time Server
+# Configure your Raspberry PI 4 as Time Server for your local devices.
 
 Last updated: 12/22/2021
 
-Instructions for Setting Up GPS USB as a stratum 0 time server for you network environment.
+Here are the steps I used in setting up a USB GPS with a Raspberry PI 4 to become a stratum 1 time server for my local networked devicds.
 
 ### Software Installation  
 
@@ -10,6 +10,8 @@ Install the GPS Daemon gpsd and the GPS Daemon client gpsd-clients
 ```
 $ sudo apt-get install gpsd gpsd-clients python-gps
 ```
+### Configuring the software for the USB GPS
+
 Plug in your USB GPS to your Raspberry PI. 
 
 You can see what the latest serial device that was added to your Pi typing:
@@ -102,6 +104,8 @@ ENABLED="yes"
 
 GPS_BAUD=9600
 ```
+
+### Configure Chrony 
 
 Start by installing chrony
 ```
