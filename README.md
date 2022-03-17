@@ -2,7 +2,7 @@
 
 Last updated: 12/22/2021
 
-Here are the steps I used in setting up a USB GPS with a Raspberry PI 4 to become a stratum 1 time server for my local networked devicds.
+Here are the steps I used in setting up a USB GPS with a Raspberry PI 4 to become a stratum 0 time server for my local networked devicds.
 
 ### Software Installation  
 
