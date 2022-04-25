@@ -81,7 +81,7 @@ Another tool for same information - CGPS.   Ctrl-c to stop
 ```
 
 
-Setting up chronyc as the time server using the GPS USB
+### Setting up chronyc as the time server using the GPS USB
 
 Create and Configure GPSD file
 
