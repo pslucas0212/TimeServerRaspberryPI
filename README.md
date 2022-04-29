@@ -57,7 +57,15 @@ $ sudo gpsd /dev/ttyUSB0 -F /var/run/gpsd.socket
 
 You can check the status gpsd
 ```
-$ sudo systemctl status gpsd
+$ $ sudo systemctl status gpsd
+● gpsd.service - GPS (Global Positioning System) Daemon
+   Loaded: loaded (/lib/systemd/system/gpsd.service; enabled; vendor preset: ena
+   Active: active (running) since Fri 2022-03-25 14:17:07 CDT; 1 months 4 days a
+  Process: 659 ExecStart=/usr/sbin/gpsd $GPSD_OPTIONS $DEVICES (code=exited, sta
+ Main PID: 667 (gpsd)
+    Tasks: 2 (limit: 4915)
+   CGroup: /system.slice/gpsd.service
+           └─667 /usr/sbin/gpsd -n -D 1 /dev/ttyUSB0
 ```
 
 Enable gpsd to start automatically on reboot
