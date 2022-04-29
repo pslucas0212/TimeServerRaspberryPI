@@ -77,7 +77,7 @@ $ gpsmon
 
 Another tool for same information - CGPS.   Ctrl-c to stop
 ```
-# cgps -s
+$ cgps -s
 ```
 
 
@@ -86,8 +86,8 @@ Another tool for same information - CGPS.   Ctrl-c to stop
 Create and Configure GPSD file
 
 ```
-cd /etc/default
-vi gpsd
+$ cd /etc/default
+$ vi gpsd
 ```
 
 gpsd file contents
