@@ -2,7 +2,9 @@
 
 Last updated: 12/22/2021
 
-Here are the steps I used in setting up a USB GPS with a Raspberry PI 4 to become a stratum 0 time server for my local networked devicds.
+Here are the steps I used in setting up a USB GPS with a Raspberry PI 4 to become a stratum 0 time server for my local networked devices.
+
+FYI... Not an endorsement, but I used the GlobalSat SiRF Star IV Serial GPS Receiver Bulk Head Mount (MR-350P-S4) in this setup.  You may have success with other USB GPS devices.  Ieally you would want to set this up outside, but I have the USB GPS sitting on a first floor window sill facing in a SouthWest-ish direction and I receive strong enough signals for it to work.
 
 ### Software Installation  
 
