@@ -1,6 +1,6 @@
 # Configure your Raspberry PI 4 as Time Server for your local devices.
 
-Last updated: 12/22/2021
+Last updated: 04/29/2022 
 
 Here are the steps I used in setting up a USB GPS with a Raspberry PI 4 to become a stratum 0 time server for my local networked devices.
 
