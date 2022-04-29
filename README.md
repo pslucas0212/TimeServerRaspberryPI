@@ -149,7 +149,7 @@ MS Name/IP address         Stratum Poll Reach LastRx Last sample
 ^- static-72-87-88-202.prvd>     2  10   377   659    -85ms[  -85ms] +/-   64ms
 ^- ntp05.cymru.com               3  10   377   672    -88ms[  -88ms] +/-  110ms
 ^- 38.229.52.9                   2   9   377   514    -87ms[  -87ms] +/-  109ms
-pslucas@ns01:/etc/chrony $ 
+
 ```
 The #* by NMEA indicates that chrony is using your USB GPS as its local time source. Note that this a stratum 0 time source.
 
