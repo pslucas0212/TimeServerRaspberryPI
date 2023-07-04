@@ -43,7 +43,7 @@ Executing: /lib/systemd/systemd-sysv-install disable gpsd
 
 Next edit the /lib/systemd/system/gpsd.socket file and change this line ListenStream=127.0.0.1:2947 to ListenStream=0.0.0.0:2947
 ```
-$ sudo vi /lib/systemd/system/gpsd.soc
+$ sudo vi /lib/systemd/system/gpsd.socket
 ```
 
 Double check that no gpsd processes are running.
@@ -54,7 +54,7 @@ gpsd: no process found
 
 Now let's bind our USB GPS to gpsd.  And of course this starts our gpsd daemon.
 ```
-$ sudo gpsd /dev/ttyUSB0 -F /var/run/gpsd.socket
+$ sudo gpsd /dev/ttyUSB0 -F /var/run/gpsd.sock
 ```
 
 You can check the status gpsd
