@@ -43,7 +43,7 @@ Executing: /lib/systemd/systemd-sysv-install disable gpsd
 
 Next edit the /lib/systemd/system/gpsd.socket file and change this line ListenStream=127.0.0.1:2947 to ListenStream=0.0.0.0:2947
 ```
-$ sudo vi /lib/systemd/system/gpsd.socket
+$ sudo vi /lib/systemd/system/gpsd.soc
 ```
 
 Double check that no gpsd processes are running.
