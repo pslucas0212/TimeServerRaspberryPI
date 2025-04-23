@@ -14,6 +14,8 @@ FYI... Not an endorsement, but I used the GlobalSat SiRF Star IV Serial GPS Rece
 
 ### Software Installation  
 
+We will use the Chrony package that comes with Fedora 41 for our time server
+
 Install the GPS Daemon gpsd and the GPS Daemon client gpsd-clients
 ```
 # dnf install -y gpsd gpsd-clients
