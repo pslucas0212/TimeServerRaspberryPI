@@ -9,8 +9,7 @@ System Specs:
 - Fedora Linux 41 (Server Edition)
 - GlobalSat SiRF Star IV Serial GPS Receiver Bulk Head Mount (MR-350P-S4)
 
-
-FYI... Not an endorsement, but I used the GlobalSat SiRF Star IV Serial GPS Receiver Bulk Head Mount (MR-350P-S4) in this setup.  You may have success with other USB GPS devices.  Ieally you would want to set this up outside, but I have the USB GPS sitting on a first floor window sill facing in a SouthWest-ish direction and I receive strong enough signals for it to work.
+You may have success with other USB GPS devices.  Ideally you would want to set this up outside, but I have the USB GPS sitting on a first floor window sill facing in a SouthWest-ish direction and I receive strong enough signals for it to work.
 
 ### Software Installation  
 
@@ -53,7 +52,44 @@ Restart the gpsd deamon
 
 If no errors run cgps.   Ctrl-c to stop.  You should see a real time list of satellites your GPS USB fob is recieving
 ```
-$ cgps -s
+# cgps -s
+┌─ssssssssssssssssssssssssssssssssssssssssss┐┌─222222222222222Seen 12/Used  9──┐
+│ Time         2025-04-23T20:19:46.000Z ( 0)││GNSS  S PRN  Elev  Azim   SNR Use│
+│ Latitude          42.16710814 N           ││GP  5     5  51.0 208.5  38.8  Y │
+│ Longitude         87.78966890 W           ││GP  6     6  26.5  70.5  19.8  Y │
+│ Alt (HAE, MSL)     871.887,    983.085 ft ││GP 11    11  58.0  51.0  20.4  Y │
+│ Speed              0.00               mph ││GP 12    12  39.0 219.0  31.8  Y │
+│ Track (true, var)	  0.0,     -4.0     deg ││GP 13    13   2.0 157.5  19.9  Y │
+│ Climb              0.00            ft/min ││GP 19    19   7.5 124.5  18.5  Y │
+│ Status          3D DGPS FIX (6 secs)      ││GP 20    20  84.0  90.0  26.3  Y │
+│ Long Err  (XDOP, EPX)   0.79, +/-  9.7 ft ││GP 25    25  39.0 267.0  40.0  Y │
+│ Lat Err   (YDOP, EPY)   1.82, +/- 22.4 ft ││SB133   133  25.5 232.5  36.5  Y │
+│ Alt Err   (VDOP, EPV)   1.93, +/- 36.4 ft ││GP 18    18  43.5 213.0   0.0  N │
+│ 2D Err    (HDOP, CEP)   1.60, +/- 24.9 ft ││GP 23    23  24.0 109.5   0.0  N │
+│ 3D Err    (PDOP, SEP)   1.60, +/- 24.9 ft ││GP 26    26   8.0 135.0   1.5  N │
+│ Time Err  (TDOP)        1.63              ││                                 │
+│ Geo Err   (GDOP)        3.22              ││                                 │
+│ Speed Err (EPS)            +/- 30.6 mph   ││                                 │
+│ Track Err (EPD)         n/a               ││                                 │
+│ Time offset             0.919352534     s ││                                 │
+│ Grid Square             EN62ce50          ││                                 │
+│ ECEF X, VX     599114.178 ft    0.000 ft/s││                                 │
+│ ECEF Y, VY  -15522418.097 ft    0.000 ft/s││                                 │
+│ ECEF Z, VZ   13974927.928 ft    0.000 ft/s││                                 │
+│                                           ││                                 │
+│                                           ││                                 │
+│                                           ││                                 │
+│                                           ││                                 │
+│                                           ││                                 │
+│                                           ││                                 │
+│                                           ││                                 │
+│                                           ││                                 │
+│                                           ││                                 │
+│                                           ││                                 │
+│                                           ││                                 │
+│                                           ││                                 │
+└─aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa┘└─                                ┘
+
 ```
 
 We want the chronyd service running as pre-req to running the gpsd service
