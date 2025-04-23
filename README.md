@@ -4,13 +4,19 @@ Last updated: 07/03/2023
 
 Here are the steps I used in setting up a USB GPS with a Raspberry PI 4 to become a stratum 0 time server for my local networked devices.
 
+System Specs:
+- raspberrypi Raspberry Pi 4 Model B Rev 1.5
+- Fedora Linux 41 (Server Edition)
+- GlobalSat SiRF Star IV Serial GPS Receiver Bulk Head Mount (MR-350P-S4)
+
+
 FYI... Not an endorsement, but I used the GlobalSat SiRF Star IV Serial GPS Receiver Bulk Head Mount (MR-350P-S4) in this setup.  You may have success with other USB GPS devices.  Ieally you would want to set this up outside, but I have the USB GPS sitting on a first floor window sill facing in a SouthWest-ish direction and I receive strong enough signals for it to work.
 
 ### Software Installation  
 
 Install the GPS Daemon gpsd and the GPS Daemon client gpsd-clients
 ```
-$ sudo apt-get install gpsd gpsd-clients gpsd-tools
+# dnf install -y gpsd gpsd-clients
 ```
 ### Configuring the software for the USB GPS
 
