@@ -35,6 +35,32 @@ crw-rw---- 1 root dialout 188,  0 Dec 22 10:39 /dev/ttyUSB0
 ```
 The newest device will show up last.  You may see something else then ttyUSB0
 
+Update the gpsd file in the /etc/sysconfig directory.  Make sure your file looks like this...
+```
+# Options for gpsd, including serial devices
+OPTIONS=""
+# Set to 'true' to add USB devices automatically via udev
+START_DAEMON="true"
+USBAUTO="true"
+DEVICES="/dev/ttyUSB0"
+GPSD_OPTIONS="-n"
+```
+
+Restart the gpsd deamon
+```
+# systemctl restart gpsd
+```
+
+If no errors run cgps.   Ctrl-c to stop.  You should see a real time list of satellites your GPS USB fob is recieving
+```
+$ cgps -s
+```
+
+
+
+
+
+# <OLD Doc - Schedule for deltion>
 Stop the gpsd service to bind the GPS to the service
 ```
 $ sudo systemctl stop gpsd
