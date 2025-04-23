@@ -59,7 +59,7 @@ If no errors run cgps.   Ctrl-c to stop.  You should see a real time list of sat
 │ Longitude         87.78966890 W           ││GP  6     6  26.5  70.5  19.8  Y │
 │ Alt (HAE, MSL)     871.887,    983.085 ft ││GP 11    11  58.0  51.0  20.4  Y │
 │ Speed              0.00               mph ││GP 12    12  39.0 219.0  31.8  Y │
-│ Track (true, var)	  0.0,     -4.0     deg ││GP 13    13   2.0 157.5  19.9  Y │
+│ Track (true, var)	  0.0, -4.0     deg ││GP 13    13   2.0 157.5  19.9  Y │
 │ Climb              0.00            ft/min ││GP 19    19   7.5 124.5  18.5  Y │
 │ Status          3D DGPS FIX (6 secs)      ││GP 20    20  84.0  90.0  26.3  Y │
 │ Long Err  (XDOP, EPX)   0.79, +/-  9.7 ft ││GP 25    25  39.0 267.0  40.0  Y │
