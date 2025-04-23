@@ -78,9 +78,10 @@ refclock SHM 0 refid GPS poll 2 precision 1e-3 offset 0.128
 
 - remove hash in front hwtimestamp *
 ```
-# Enable hardware timestamping on all interfaces that support it.
+# Enable hardware time stamping on all interfaces that support it.
 hwtimestamp *
 ```
+
 
 
 # <Old Doc - Schedule for deletion>
