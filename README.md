@@ -42,7 +42,7 @@ OPTIONS=""
 START_DAEMON="true"
 USBAUTO="true"
 DEVICES="/dev/ttyUSB0"
-GPSD_OPTIONS="-n"
+GPSD_OPTIONS="-n -G -r"
 ```
 
 Restart the gpsd deamon
@@ -108,9 +108,13 @@ Edit the /etc/chrony.conf file.
 - Add:
 ```
 # Connect GPS USB
-refclock SHM 0 refid GPS poll 2 precision 1e-3 offset 0.128
+refclock SHM 0 offset 0.5 delay 0.2 refid NMEA prefer
 ```
-
+- Remove the hash in front of stratum preference setting
+```
+# Prefer servers with the lowest stratum regardless of their distance
+stratumweight 2
+```
 - remove hash in front hwtimestamp *
 ```
 # Enable hardware time stamping on all interfaces that support it.
