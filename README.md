@@ -58,6 +58,16 @@ $ cgps -s
 
 The chrony package comes installed, but not enabled on Fedora 41
 
+Add Wants=chronyd.service to the gpsd.service file found in the /etc/systemd/system.  Place the line before After=chronyd.service.  Your file will look something like this...
+```
+[Unit]
+Description=GPS (Global Positioning System) Daemon
+Requires=gpsd.socket
+# Needed with chrony SOCK refclock
+Wants=chronyd.service
+After=chronyd.service
+```
+
 
 
 # <Old Doc - Schedule for deletion>
