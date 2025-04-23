@@ -56,11 +56,11 @@ If no errors run cgps.   Ctrl-c to stop.  You should see a real time list of sat
 $ cgps -s
 ```
 
+The chrony package comes installed, but not enabled on Fedora 41
 
 
 
-
-# <OLD Doc - Schedule for deltion>
+# <Old Doc - Schedule for deletion>
 Stop the gpsd service to bind the GPS to the service
 ```
 $ sudo systemctl stop gpsd
