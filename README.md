@@ -56,9 +56,8 @@ If no errors run cgps.   Ctrl-c to stop.  You should see a real time list of sat
 $ cgps -s
 ```
 
-The chrony package comes installed, but not enabled on Fedora 41
-
-Add Wants=chronyd.service to the gpsd.service file found in the /etc/systemd/system.  Place the line before After=chronyd.service.  Your file will look something like this...
+We want the chronyd service running as pre-req to running the gpsd service
+Add 'Wants=chronyd.service' to the gpsd.service file found in the /etc/systemd/system.  Place the line before 'After=chronyd.service'.  Your file will look something like this...
 ```
 [Unit]
 Description=GPS (Global Positioning System) Daemon
@@ -67,7 +66,7 @@ Requires=gpsd.socket
 Wants=chronyd.service
 After=chronyd.service
 ```
-
+The chronyd package comes installed and enabled by default in Fedora 41.  We 
 Edit the /etc/chrony.conf file.
 
 - Add:
@@ -81,7 +80,44 @@ refclock SHM 0 refid GPS poll 2 precision 1e-3 offset 0.128
 # Enable hardware time stamping on all interfaces that support it.
 hwtimestamp *
 ```
+Make sure gpsd is stopped and then restart chronyd and gpsd.  If everything is setup correctly you should have startum 0 time server running
 
+```
+# chronyc sources -v
+
+  .-- Source mode  '^' = server, '=' = peer, '#' = local clock.
+ / .- Source state '*' = current best, '+' = combined, '-' = not combined,
+| /             'x' = may be in error, '~' = too variable, '?' = unusable.
+||                                                 .- xxxx [ yyyy ] +/- zzzz
+||      Reachability register (octal) -.           |  xxxx = adjusted offset,
+||      Log2(Polling interval) --.      |          |  yyyy = measured offset,
+||                                \     |          |  zzzz = estimated error.
+||                                 |    |           \
+MS Name/IP address         Stratum Poll Reach LastRx Last sample               
+===============================================================================
+#* GPS                           0   2   273     3  +4666us[+8304us] +/-   17ms
+```
+
+The #* by GPS indicates that chrony is using your USB GPS as its local time source. Note that this a stratum 0 time source.
+
+You can also verify that the USB GPS is in use with the following:
+```
+# chronyc tracking
+Reference ID    : 47505300 (GPS)
+Stratum         : 1
+Ref time (UTC)  : Wed Apr 23 20:13:40 2025
+System time     : 0.000354952 seconds slow of NTP time
+Last offset     : -0.001120362 seconds
+RMS offset      : 0.000764950 seconds
+Frequency       : 46.082 ppm fast
+Residual freq   : -2.609 ppm
+Skew            : 39.195 ppm
+Root delay      : 0.000000001 seconds
+Root dispersion : 0.008200806 seconds
+Update interval : 12.0 seconds
+Leap status     : Normal
+```
+Notice that the Referene refers to GPS which is our USB GPS
 
 
 # <Old Doc - Schedule for deletion>
