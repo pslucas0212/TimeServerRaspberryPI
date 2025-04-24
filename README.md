@@ -1,6 +1,6 @@
 # Configure your Raspberry PI 4 running Fedora 41 as Time Server for your local devices.
 
-Documentation update in progress - 23 April 2025
+Updated - 24 April 2025
 
 Here are the steps I used in setting up a USB GPS with a Raspberry PI 4 to become a stratum 0 time server for my local networked devices.
 
