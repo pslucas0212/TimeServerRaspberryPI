@@ -42,7 +42,7 @@ OPTIONS=""
 START_DAEMON="true"
 USBAUTO="true"
 DEVICES="/dev/ttyUSB0"
-GPSD_OPTIONS="-n -G -r"
+GPSD_OPTIONS="-n"
 ```
 
 Restart the gpsd deamon
@@ -105,10 +105,11 @@ After=chronyd.service
 The chronyd package comes installed and enabled by default in Fedora 41.  We 
 Edit the /etc/chrony.conf file.
 
+
 - Add:
 ```
 # Connect GPS USB
-refclock SHM 0 offset 0.5 delay 0.2 refid NMEA prefer
+refclock SHM 0 refid GPS poll 2 precision 1e-3 offset 0.128
 ```
 - Remove the hash in front of stratum preference setting
 ```
@@ -119,6 +120,36 @@ stratumweight 2
 ```
 # Enable hardware time stamping on all interfaces that support it.
 hwtimestamp *
+```
+
+- In the Allow section add any subnets that need access to chronyd as a time source
+```
+# Allow NTP client access from local network.
+allow x.x.x.x/24
+allow x.x.x.x/24
+```
+
+- Finally update the firewall-cmd to allow clients to access the ntp service on your time server
+```
+# firewall-cmd --add-service=ntp --permanent 
+# firewall-cmd --reload
+# firewall-cmd --list-all
+FedoraServer (default, active)
+  target: default
+  ingress-priority: 0
+  egress-priority: 0
+  icmp-block-inversion: no
+  interfaces: end0
+  sources: 
+  services: cockpit dhcpv6-client dns mdns ntp ssh
+  ports: 53/tcp
+  protocols: 
+  forward: yes
+  masquerade: no
+  forward-ports: 
+  source-ports: 
+  icmp-blocks: 
+  rich rules: 
 ```
 Make sure gpsd is stopped and then restart chronyd and gpsd.  If everything is setup correctly you should have startum 0 time server running
 
