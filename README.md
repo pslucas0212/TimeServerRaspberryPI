@@ -207,4 +207,5 @@ Notice that the Referene refers to GPS which is our USB GPS
 [Raspberry Pi Buster – GPS Dongle as a time source with Chrony & Timedatectl](https://photobyte.org/raspberry-pi-stretch-gps-dongle-as-a-time-source-with-chrony-timedatectl/)  
 [Raspberry Pi 4 GPS Install](https://www.youtube.com/watch?v=isVHkovZuSM)  
 [How to Setup GPS Tracker for Raspberry Pi](https://www.youtube.com/watch?v=A1zmhxcUOxw)
+[How to configure chrony as an NTP client or server in Linux](https://www.redhat.com/en/blog/chrony-time-services-linux#:~:text=in%20the%20chrony.-,conf%20file.,act%20as%20an%20NTP%20server.)
 
